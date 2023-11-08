@@ -3,18 +3,16 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">Welcome on Stay Active</h1>
         <p class="col-md-8 fs-4">Practice sport with people around you. Join existing runs or create one to invite people to join you for exercising. Sign up to access it.</p>
+         <% if not user_signed_in? %>
         <button class="btn btn-primary btn-lg" type="button">Sign up</button>
+        <% end %>
       </div>
     </div>
+    <% if user_signed_in? %>
     <div class="container">
         <ul>
-        <% if user_signed_in? %>
             <li>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete} %>
-            </li>
-
-            <li>
-            Voici ton email : <%= current_user.email %>
+            Bienvenue <%= current_user.email %>
             </li>
 
             <li>
@@ -24,17 +22,39 @@
             <li>
             <%= link_to "Edit email / password", edit_user_registration_path %>
             </li>
-
-        <% else %>
-            <li>    
-            <%= link_to "Sign in", new_user_session_path %>
-            </li>
-
-            <li>
-            <%= link_to "Sign up", new_user_registration_path %>
-            </li>
-
-        <% end %>
         </ul>
     </div>
+    <% else %>
+    <div class="container">
+        <div class="row g-2 bg-light my-3 py-3">
+            <div class="col-6">
+                
+                <div class="card mx-auto" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Run in City name</h5>
+                        <p class="card-text">Hello, join me for my running session. Will be running in Area</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Date: 29 November 2023</li>
+                        <li class="list-group-item">Distance/time: 5km/ 40min</li>
+                        <li class="list-group-item">Difficulty: Easy</li>
+                        <li class="list-group-item">Number of people: 1/5</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">More details</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div class="p-3 d-flex">
+                    <div class="align-items-center">
+                        All the relevant details are displayed on those cards. You can create a run or send a request to join one. More information are available on the page of the run.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
+
 </main>
