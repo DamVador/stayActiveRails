@@ -1,0 +1,5 @@
+.jumbotron {
+    background-color: grey;
+    background-image: url(https://picsum.photos/900/400) !important;
+    background-size: cover;
+}
