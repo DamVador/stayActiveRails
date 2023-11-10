@@ -8,11 +8,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= yield :head %>
   </head>
 
   <body class="d-flex flex-column min-vh-100">
     <header>
-    <%= render 'layouts/navbar' %>
+    <% if !current_page?(:new_user_session) %>
+       <%= render 'layouts/navbar' %>
+    <% end %>
     </header>
     <%= yield %>
 
