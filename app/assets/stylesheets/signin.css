@@ -4,6 +4,10 @@ body {
 }
 
 body {
+    text-align: center !important;
+}
+
+body {
   display: flex;
   align-items: center;
   padding-top: 40px;
@@ -36,4 +40,8 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.stay-active-home {
+    text-decoration: none;
 }

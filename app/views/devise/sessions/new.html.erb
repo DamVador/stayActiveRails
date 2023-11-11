@@ -3,27 +3,34 @@
 <% end %>
 
 <main class="form-signin">
-  <form>
-    <h1>StayActive</h1>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= link_to "StayActive", root_path, class:'h1 stay-active-home' %>
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; <%= Time.now.year %></p>
-  </form>
+      <div class="form-floating">
+        <%= f.email_field :email, class: 'form-control', placeholder: 'name@example.com', id: 'floatingInput' %>
+        <%= f.label :email, for: 'floatingInput' %>
+      </div>
+
+      <div class="form-floating">
+        <%= f.password_field :password, class: 'form-control', placeholder: 'Password', id: 'floatingPassword' %>
+        <%= f.label :password, for: 'floatingPassword' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="checkbox mb-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Sign in", class: 'w-100 btn btn-lg btn-primary' %>
+      </div>
+
+      <p class="mt-5 mb-3 text-muted">&copy; <%= Time.now.year %></p>
+  <% end %>
 </main>
 
 <%= render "devise/shared/links" %>

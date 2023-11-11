@@ -14,11 +14,13 @@
   <body class="d-flex flex-column min-vh-100">
     <header>
     <% if !current_page?(:new_user_session) %>
-       <%= render 'layouts/navbar' %>
+        <%= render 'layouts/navbar' %>
     <% end %>
     </header>
     <%= yield %>
 
-    <%= render 'layouts/footer' %>
+    <% if !current_page?(:new_user_session) %>
+        <%= render 'layouts/footer' %>
+    <% end %>
   </body>
 </html>
