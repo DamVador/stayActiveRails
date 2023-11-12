@@ -2,6 +2,7 @@
 
 <main class="form-signin">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
       <%= link_to "StayActive", root_path, class:'h1 stay-active-home' %>
 
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
