@@ -13,13 +13,13 @@
 
   <body class="d-flex flex-column min-vh-100">
     <header>
-    <% if !current_page?(:new_user_session) %>
+    <% unless current_page?(:new_user_session) || current_page?(:new_user_registration) %>
         <%= render 'layouts/navbar' %>
     <% end %>
     </header>
     <%= yield %>
 
-    <% if !current_page?(:new_user_session) %>
+    <% unless current_page?(:new_user_session) || current_page?(:new_user_registration) %>
         <%= render 'layouts/footer' %>
     <% end %>
   </body>
