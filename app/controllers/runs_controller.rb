@@ -3,7 +3,13 @@ class RunsController < ApplicationController
 
   # GET /runs or /runs.json
   def index
-    @runs = Run.all
+    def index
+      if current_user
+        @runs = Run.all
+      else
+        render 'static_pages/index'
+      end
+    end
   end
 
   # GET /runs/1 or /runs/1.json

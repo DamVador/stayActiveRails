@@ -17,6 +17,8 @@
         <%= render 'layouts/navbar' %>
     <% end %>
     </header>
+    <p style="color: green"><%= notice %></p>
+
     <%= yield %>
 
     <% unless current_page?(:new_user_session) || current_page?(:new_user_registration) %>
