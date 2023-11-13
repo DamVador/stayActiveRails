@@ -1,2 +1,55 @@
-<div id="<%= dom_id run %>">
+<style>
+.horizontal {
+    display: flex !important;
+}
+
+.fake-map{
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    min-height: 300px;
+    background-color: grey;
+}
+@media (max-width: 1000px) {
+  .col-6 {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+      .in-col {
+    flex-direction: column !important;
+  }
+}
+</style>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-6 d-flex flex-column">
+      <div class="fake-map"></div>
+    </div>
+    <div class="col-6 d-flex flex-row mt-3 in-col">
+      <div class="card mx-auto" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Run in <%=  @run.city %></h5>
+          <p class="card-text">Hello, join me for my running session. Will be running in Area</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Date: <%=  @run.date_time %></li>
+          <li class="list-group-item">Distance/time: <%=  @run.distance %></li>
+          <li class="list-group-item">Difficulty: <%=  @run.difficulty %></li>
+          <li class="list-group-item">Number of people: 1/ <%=  @run.accepted_people_number %></li>
+        </ul>
+      </div>
+      <h2>Participants</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+    <%= link_to "Edit this run", edit_run_path(@run) %> |
+    <%= link_to "Back to runs", runs_path %>
+
+    <%= button_to "Destroy this run", @run, method: :delete %>
+    </div>
+  </div>
 </div>
