@@ -11,7 +11,41 @@
     </div>
   <% end %>
 
+   <div class="form-group">
+    <%= form.label :city %>
+    <%= form.text_field :city, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :latitude %>
+    <%= form.number_field :lat, step: :any, class: 'form-control', id: 'latitude-input' %>  </div>
+
+  <div class="form-group">
+    <%= form.label :longitude %>
+    <%= form.number_field :lng, step: :any, class: 'form-control', id: 'longitude-input' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :accepted_people_number %>
+    <%= form.number_field :accepted_people_number, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :distance %>
+    <%= form.number_field :distance,  step: :any, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :difficulty %>
+    <%= form.select :difficulty, options_for_select([1, 2, 3, 4, 5]), class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :date_time %>
+    <%= form.datetime_select :date_time, class: 'form-control' %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+

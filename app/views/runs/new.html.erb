@@ -1,9 +1,22 @@
-<h1>New run</h1>
+<style>
+  .form_new_run {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+</style>
 
-<%= render "form", run: @run %>
+<div class="container">
+  <div class="form_new_run">
+    <h1>New run</h1>
 
-<br>
+    <%= render "form", run: @run %>
 
-<div>
-  <%= link_to "Back to runs", runs_path %>
+    <br>
+
+    <div>
+      <%= link_to "Back to runs", runs_path %>
+    </div>
+  </div>
 </div>

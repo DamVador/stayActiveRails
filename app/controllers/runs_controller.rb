@@ -71,6 +71,8 @@ class RunsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def run_params
-      params.fetch(:run, {})
+      # params.fetch(:run, {})
+      params.require(:run).permit(:city, :latitude, :longitude, :accepted_people_number, :distance, :difficulty, :date_time)
     end
+
 end
