@@ -1,17 +1,40 @@
-<h1>Runs</h1>
+<main>
+    <div class="p-5 mb-4 bg-light rounded-3 jumbotron">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome on Stay Active</h1>
+        <p class="col-md-8 fs-4">Practice sport with people around you. Join existing runs or create one to invite people to join you for exercising. Sign up to access it.</p>
+        <%= link_to "New run", new_run_path, class:'btn btn-secondary' %>
+      </div>
+    </div>
 
-<div id="runs">
-  <% if @runs.present? %>
+    <div class="container">
+      <div class="row">
+      <% if @runs.present? %>
 
-  <% @runs.each do |run| %>
-    <%# <%= render run %> 
-    <p>
-      <%= link_to "Show this run", run %>
-    </p>
-  <% end %>
-  <% else %>
+      <% @runs.each do |run| %>
+        <%# <%= render run %> 
+        
+            
+            <div class="col-3 mx-2">
+              <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Run in <%=  run.city %></h5>
+                  <p class="card-text">Hello, join me for my running session. Will be running in Area</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Date: <%=  run.date_time %></li>
+                  <li class="list-group-item">Distance: <%=  run.distance %></li>
+                  <li class="list-group-item">Difficulty: <%=  run.difficulty %></li>
+                  <li class="list-group-item">Number of people: 1/ <%=  run.accepted_people_number %></li>
+                  <li> <%= link_to "Show this run", run %> </li>
+                </ul>
+              </div>
+            </div>      
 
-  <% end %>
-</div>
+      <% end %>
+      <% else %>
 
-<%= link_to "New run", new_run_path %>
+      <% end %>
+      </div>
+    </div>
+</main>
