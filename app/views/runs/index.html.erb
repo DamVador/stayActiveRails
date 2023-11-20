@@ -1,12 +1,16 @@
 <h1>Runs</h1>
 
 <div id="runs">
-  
+  <% if @runs.present? %>
+
   <% @runs.each do |run| %>
     <%# <%= render run %> 
     <p>
       <%= link_to "Show this run", run %>
     </p>
+  <% end %>
+  <% else %>
+
   <% end %>
 </div>
 
